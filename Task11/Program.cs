@@ -7,10 +7,10 @@
 int number = new Random().Next(100, 1000);
 Console.WriteLine($"Случайное число из отрезка 100 - 999 -> {number}");
 
-int delitSecondNum = DeletSecondNum(number);
+int delitSecondNum = RemoveSecondDigit(number);
 Console.WriteLine($"{number} -> {delitSecondNum}");
 
-int DeletSecondNum(int num)
+int RemoveSecondDigit(int num)
 {
     int firstDigit = num / 100;
     int thirdDigit = num % 10;
