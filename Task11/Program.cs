@@ -7,8 +7,8 @@
 int number = new Random().Next(100, 1000);
 Console.WriteLine($"Случайное число из отрезка 100 - 999 -> {number}");
 
-int delitSecondNum = RemoveSecondDigit(number);
-Console.WriteLine($"{number} -> {delitSecondNum}");
+int result = RemoveSecondDigit(number);
+Console.WriteLine($"{number} -> {result}");
 
 int RemoveSecondDigit(int num)
 {
