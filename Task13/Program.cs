@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Напишите программу, которая выводит третью цифру заданного числа 
+// или сообщает, что третьей цифры нет. 
+// Выполнить с помощью числовых операций.
