@@ -2,12 +2,6 @@
 // и на выходе показывает вторую цифру этого числа. 
 // Выполнить с помощью числовых операций.
 
-// int number = new Random().Next(100, 1000);
-// Console.WriteLine($"Случайное число из отрезка 100 - 999 -> {number}");
-
-// int result = RemoveSecondDigit(number);
-// Console.WriteLine($"{number} -> {result}");
-
 Console.WriteLine("Введите трёхзначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
