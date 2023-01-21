@@ -2,16 +2,16 @@
 // показывает диапазон возможных координат точек в этой четверти (x и y).
 
 Console.WriteLine("Введите номер четверти: ");
-int quarter = Convert.ToInt32(Console.ReadLine());
+string quarter = Console.ReadLine();
 
 string range = Range(quarter);
 Console.WriteLine(range);
 
-string Range(int quarterNum)
+string Range(string quarterNum)
 {
-    if(quarterNum == 1) return "Диапазон значений для данной четверти: x > 0 и y > 0";
-    if(quarterNum == 2) return "Диапазон значений для данной четверти: x < 0 и y > 0";
-    if(quarterNum == 3) return "Диапазон значений для данной четверти: x < 0 и y < 0";
-    if(quarterNum == 4) return "Диапазон значений для данной четверти: x > 0 и y < 0";
-    return "Такой четверти нет";
+    if(quarterNum == "1") return "Диапазон значений для данной четверти: x > 0 и y > 0";
+    if(quarterNum == "2") return "Диапазон значений для данной четверти: x < 0 и y > 0";
+    if(quarterNum == "3") return "Диапазон значений для данной четверти: x < 0 и y < 0";
+    if(quarterNum == "4") return "Диапазон значений для данной четверти: x > 0 и y < 0";
+    return "Введите корректные данные";
 }
