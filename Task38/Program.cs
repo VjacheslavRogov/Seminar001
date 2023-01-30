@@ -24,3 +24,38 @@ void PrintArrayDouble(double[] arr)
     }
     Console.Write("]");
 }
+
+double GetMaxNumbers(double[] arr)
+{
+    double max = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if(max < arr[i]) max = arr[i];
+    }
+    return max;
+}
+
+double GetMinNumbers(double[] arr)
+{
+    double min = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if(min > arr[i]) min = arr[i];
+    }
+    return min;
+}
+
+double GetDifference(double max, double min)
+{
+    double diff = max - min;
+    diff = Math.Round(diff, 1);
+    return diff;
+}
+
+double[] array = CreateArrayRndDouble(5, -100, 100);
+double maxNumbers = GetMaxNumbers(array);
+double minNumbers = GetMinNumbers(array);
+double difference = GetDifference(maxNumbers, minNumbers);
+PrintArrayDouble(array);
+Console.WriteLine();
+Console.WriteLine($"Разница между максимальным и минимальным элементами массива: {difference}");
