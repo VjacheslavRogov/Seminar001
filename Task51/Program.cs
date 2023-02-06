@@ -1,5 +1,5 @@
-﻿// Задайте двумерный массив. 
-// Найдите элементы, у которых оба индекса чётные и замените эти элементы на их квадраты.
+﻿// Задайте двумерный массив.
+// Найдите сумму элементов, находящихся на главной диагонали(с индексами (0,0); (1,1) и т.д.)
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -30,21 +30,22 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void SquareAddNumbers(int[,] matrix)
+int SumMatrixElems(int[,] matrix)
 {
-    for (int i = 0; i < matrix.GetLength(0); i += 2)
+    int sum = 0;
+    int size = matrix.GetLength(0);
+    if (matrix.GetLength(0) > matrix.GetLength(1))
+        size = matrix.GetLength(1);
+
+    for (int i = 0; i < size; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j += 2)
-        {
-
-            matrix[i, j] *= matrix[i, j];
-
-        }
+        sum += matrix[i, i];
     }
+    return sum;
 }
 
-int[,] array2D = CreateMatrixRndInt(3, 4, 1, 10);
+int[,] array2D = CreateMatrixRndInt(5, 4, 1, 10);
 PrintMatrix(array2D);
 Console.WriteLine(" ");
-SquareAddNumbers(array2D);
-PrintMatrix(array2D);
+int result = SumMatrixElems(array2D);
+Console.WriteLine(result);
