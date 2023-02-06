@@ -35,7 +35,7 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int SearchElements(int[,] matrix, int rows, int columns)
+int SearchElement(int[,] matrix, int rows, int columns)
 {
     int result = 0;
     for (int i = 0; i <= rows; i++)
@@ -51,23 +51,45 @@ int SearchElements(int[,] matrix, int rows, int columns)
     return result;
 }
 
-Console.Write("Введите номер строки: ");
-int rowsNum;
-if (int.TryParse(Console.ReadLine(), out rowsNum))
-{   
-    Console.Write("Введите номер столбца: ");
-    int columnsNum;
-    if (int.TryParse(Console.ReadLine(), out columnsNum))
+Console.WriteLine("Задайте размеры массива");
+Console.WriteLine("Введите количество строк: ");
+int rowsCount;
+if (int.TryParse(Console.ReadLine(), out rowsCount))
+{
+    Console.WriteLine("Введите количество столбцов: ");
+    int columnsCount;
+    if (int.TryParse(Console.ReadLine(), out columnsCount))
     {
-        if (rowsNum >= 0 && columnsNum >= 0)
+        if (rowsCount > 0 && columnsCount > 0)
         {
-            int[,] array2D = CreateMatrixRndInt(3, 4, -100, 100);
-            PrintMatrix(array2D);
-            int result = SearchElements(array2D, rowsNum, columnsNum);
-            Console.WriteLine($"{result}");
+            Console.Write("Введите номер строки: ");
+            int rowsNum;
+            if (int.TryParse(Console.ReadLine(), out rowsNum))
+            {
+                Console.Write("Введите номер столбца: ");
+                int columnsNum;
+                if (int.TryParse(Console.ReadLine(), out columnsNum))
+                {
+                    if (rowsNum >= 0 && columnsNum >= 0)
+                    {
+                        int[,] array2D = CreateMatrixRndInt(rowsCount, columnsCount, -100, 100);
+                        PrintMatrix(array2D);
+                        if (rowsNum < array2D.GetLength(0) && columnsNum < array2D.GetLength(1))
+                        {
+                            int result = SearchElement(array2D, rowsNum, columnsNum);
+                            Console.WriteLine($"Значение искомого элемента -> {result}");
+                        }
+                        else Console.WriteLine("Такого элемента в массиве нет");
+                    }
+                    else Console.WriteLine("Введено отрицательное число.");
+                }
+                else Console.WriteLine("Введено некорректное значение.");
+            }
+            else Console.WriteLine("Введено некорректное значение.");
         }
-        else Console.WriteLine("Введено отрицательное число.");
+        else Console.WriteLine("Введено некорректное значение.");
     }
     else Console.WriteLine("Введено некорректное значение.");
 }
 else Console.WriteLine("Введено некорректное значение.");
+
