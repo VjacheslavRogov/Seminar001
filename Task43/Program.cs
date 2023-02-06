@@ -28,7 +28,10 @@ Console.WriteLine("введите значение b2");
 double b2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("введите число k2");
 double k2 = Convert.ToInt32(Console.ReadLine());
-
-double x = DotIntersectionX(b1, k1, b2, k2);
-double y = DotIntersectionY(b2, k2, x);
-PrintCoordinates(x, y);
+if(k1 != k2)
+{
+    double x = DotIntersectionX(b1, k1, b2, k2);
+    double y = DotIntersectionY(b2, k2, x);
+    PrintCoordinates(x, y);
+}
+else Console.WriteLine("Прямые параллельны");
