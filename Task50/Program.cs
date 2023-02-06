@@ -92,4 +92,3 @@ if (int.TryParse(Console.ReadLine(), out rowsCount))
     else Console.WriteLine("Введено некорректное значение.");
 }
 else Console.WriteLine("Введено некорректное значение.");
-
