@@ -3,15 +3,15 @@
 // значения b1, k1, b2 и k2 задаются пользователем.
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-double DotIntersectionX(double a1, double c1, double a2, double c2)
+double DotIntersectionX(double b1, double k1, double b2, double k2)
 {
-    double x = (-a2 + a1)/(-c1 + c2);
+    double x = (-b2 + b1)/(-k1 + k2);
     return x;
 }
 
-double DotIntersectionY(double a2, double c2, double x)
+double DotIntersectionY(double b2, double k2, double x)
 {
-    double y = c2 * x + a2;
+    double y = k2 * x + b2;
     return y;
 }
 
