@@ -46,4 +46,73 @@ int[] MatrixMinElemIndex(int[,] array2D)
 {
     int[] result = new int[2];
     int min = array2D[0, 0];
-    for (int i = 0; i < array2
+    for (int i = 0; i < array2D.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2D.GetLength(1); j++)
+        {   
+            if (array2D[i, j] < min)
+            {
+                min = array2D[i, j];
+                result[0] = i;
+                result[1] = j;
+            }
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        else Console.Write($"{arr[i]}");
+    }
+    Console.Write("]");
+}
+
+int[,] DeleteMinRowsColumns(int[,] array2D, int[] array)
+{
+    int rowsCount = array2D.GetLength(0) - 1;
+    int columnsCount = array2D.GetLength(1) - 1;
+    int[,] resultMatrix = new int[rowsCount, columnsCount];
+    int m = 0;
+    for (int i = 0; i < rowsCount; i++)
+    {
+        if (m == array[0]) m++;
+        int n = 0;
+        for (int j = 0; j < columnsCount; j++)
+        {
+            if (n == array[1]) n++;
+            resultMatrix[i, j] = array2D[m, n];
+            n++;
+        }
+        m++;
+    }
+    return resultMatrix;
+}
+
+Console.WriteLine("Введите кол-во строк в массиве: ");
+int rowsSize = UserInput();
+if (rowsSize <= 0) IncorrectValue();
+Console.WriteLine("Введите кол-во столбцов в массиве: ");
+int columnsSize = UserInput();
+if (columnsSize <= 0) IncorrectValue();
+Console.WriteLine("Введите левую границу диапазона чисел: ");
+int minValue = UserInput();
+Console.WriteLine("Введите правую границу диапазона чисел: ");
+int maxValue = UserInput();
+
+int[,] matrix = MatrixCreate(rowsSize, columnsSize, minValue, maxValue);
+Console.WriteLine("Заданный массив: ");
+PrintMatrix(matrix);
+
+int[] indexArray = MatrixMinElemIndex(matrix);
+Console.WriteLine("Индекс минимального элемента: ");
+PrintArray(indexArray);
+
+int[,] answerMatrix = DeleteMinRowsColumns(matrix, indexArray);
+Console.WriteLine("");
+Console.WriteLine("Результирующий массив: ");
+PrintMatrix(answerMatrix);
